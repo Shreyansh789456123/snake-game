@@ -92,33 +92,57 @@ class Snake{
         for(var i = 0; i < this.body.length; i++){
            
             //console.log(this.turns)
+            if(bodyDirection === "left"){
+                
 
+                this.body[i].position.x -= 3
+                console.log("reduced x position by 3")
+            }        
+                
+                                                                     
+            if(bodyDirection === "right"){
+                
+                this.body[i].position.x += 3
+            }
+
+            if(bodyDirection === "up"){
+                
+                this.body[i].position.y -=3
+            }
+
+            if(bodyDirection === "down"){
+               
+                this.body[i].position.y +=3
+            }
             for(var j = 0; j < this.turns.length; j++){
 
                 if(this.body[i].position.x === this.turns[j][0] && this.body[i].position.y === this.turns[j][1]){
                     bodyDirection = this.turns[j][2]
-                }
+                    if(bodyDirection === "up"){
+                        this.body[i].position.x = this.turns[j][0]
 
-                if(bodyDirection === "left"){
-                    this.body[i].position.x -= 3
-                    console.log("reduced x position by 3")
-                }        
-                
-                                                                     
-                if(bodyDirection === "right"){
-                    this.body[i].position.x += 3
-                }
+                    }
 
-                if(bodyDirection === "up"){
-                    this.body[i].position.y -=3
-                }
+                    if(bodyDirection === "down"){
+                        this.body[i].position.x = this.turns[j][0]
+                        
+                    }
 
-                if(bodyDirection === "down"){
-                    this.body[i].position.x +=3
-                }
-                
+                    if(bodyDirection === "left"){
+                        this.body[i].position.y = this.turns[j][1]
+                        
+                    }
 
+                    if(bodyDirection === "right"){
+                        this.body[i].position.y = this.turns[j][1]
+                        
+                    }
+                }
             }
+           
+                
+
+            
             console.log(bodyDirection) 
         }
 
